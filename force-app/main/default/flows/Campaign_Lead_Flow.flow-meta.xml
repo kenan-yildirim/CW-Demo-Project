@@ -60,6 +60,36 @@
         </connector>
     </assignments>
     <assignments>
+        <name>assign_Single_Campaign_Member</name>
+        <label>assign Single Campaign Member</label>
+        <locationX>50</locationX>
+        <locationY>998</locationY>
+        <assignmentItems>
+            <assignToReference>assign_Campaign_Member.CampaignId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Campaigns.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>assign_Campaign_Member.LeadId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>assign_Lead.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>assign_Campaign_Member.Status</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Received</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Create_Campaign_Member</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>assign_single_Lead</name>
         <label>assign single Lead</label>
         <locationX>50</locationX>
@@ -138,11 +168,151 @@
             <targetReference>Create_Lead</targetReference>
         </connector>
     </assignments>
+    <assignments>
+        <name>Copy_1_of_assign_single_Ad</name>
+        <label>Copy 1 of assign single Ad</label>
+        <locationX>314</locationX>
+        <locationY>398</locationY>
+        <assignmentItems>
+            <assignToReference>assign_Ad.UTM_Campaign__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>utm_campaign</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>assign_Ad.UTM_Content__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>utm_content</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>assign_Ad.UTM_Id__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>utm_id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>assign_Ad.UTM_Medium__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>utm_medium</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>assign_Ad.UTM_Source__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>utm_source</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>assign_Ad.UTM_Term__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>utm_term</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>assign_Ad.UTM_Referer__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>utm_referer</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Copy_1_of_Create_Ad</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Copy_1_of_assign_single_Lead</name>
+        <label>Copy 1 of assign single Lead</label>
+        <locationX>314</locationX>
+        <locationY>758</locationY>
+        <assignmentItems>
+            <assignToReference>assign_Lead.FirstName</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Copy_1_of_name.firstName</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>assign_Lead.LastName</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Copy_1_of_name.lastName</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>assign_Lead.Phone</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Copy_1_of_phone.value</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>assign_Lead.Street</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Copy_1_of_address.street</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>assign_Lead.City</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Copy_1_of_address.city</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>assign_Lead.State</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Copy_1_of_address.province</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>assign_Lead.PostalCode</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Copy_1_of_address.postalCode</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>assign_Lead.Email</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Copy_1_of_email.value</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>assign_Lead.Ad__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>assign_Ad.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>assign_Lead.Company</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Lead from Web</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Copy_1_of_Create_Lead</targetReference>
+        </connector>
+    </assignments>
     <decisions>
         <name>Campaign_Check</name>
         <label>Campaign Check</label>
         <locationX>182</locationX>
         <locationY>278</locationY>
+        <defaultConnector>
+            <targetReference>Copy_1_of_assign_single_Ad</targetReference>
+        </defaultConnector>
         <defaultConnectorLabel>Invalid</defaultConnectorLabel>
         <rules>
             <name>valid</name>
@@ -184,6 +354,26 @@
     </processMetadataValues>
     <processType>Flow</processType>
     <recordCreates>
+        <name>Copy_1_of_Create_Ad</name>
+        <label>Copy 1 of Create Ad</label>
+        <locationX>314</locationX>
+        <locationY>518</locationY>
+        <connector>
+            <targetReference>Copy_1_of_Contact_Form</targetReference>
+        </connector>
+        <inputReference>assign_Ad</inputReference>
+    </recordCreates>
+    <recordCreates>
+        <name>Copy_1_of_Create_Lead</name>
+        <label>Copy 1 of Create Lead</label>
+        <locationX>314</locationX>
+        <locationY>878</locationY>
+        <connector>
+            <targetReference>Copy_1_of_End_Form</targetReference>
+        </connector>
+        <inputReference>assign_Lead</inputReference>
+    </recordCreates>
+    <recordCreates>
         <name>Create_Ad</name>
         <label>Create Ad</label>
         <locationX>50</locationX>
@@ -194,10 +384,23 @@
         <inputReference>assign_Ad</inputReference>
     </recordCreates>
     <recordCreates>
+        <name>Create_Campaign_Member</name>
+        <label>Create Campaign Member</label>
+        <locationX>50</locationX>
+        <locationY>1118</locationY>
+        <connector>
+            <targetReference>End_Form</targetReference>
+        </connector>
+        <inputReference>assign_Campaign_Member</inputReference>
+    </recordCreates>
+    <recordCreates>
         <name>Create_Lead</name>
         <label>Create Lead</label>
         <locationX>50</locationX>
         <locationY>878</locationY>
+        <connector>
+            <targetReference>assign_Single_Campaign_Member</targetReference>
+        </connector>
         <inputReference>assign_Lead</inputReference>
     </recordCreates>
     <recordLookups>
@@ -286,6 +489,97 @@
         <showFooter>true</showFooter>
         <showHeader>false</showHeader>
     </screens>
+    <screens>
+        <name>Copy_1_of_Contact_Form</name>
+        <label>Copy 1 of Contact Form</label>
+        <locationX>314</locationX>
+        <locationY>638</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Copy_1_of_assign_single_Lead</targetReference>
+        </connector>
+        <fields>
+            <name>Copy_1_of_display_form_header</name>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 18px;&quot;&gt;Contact Form&lt;/strong&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Copy_1_of_test_UTM_data</name>
+            <fieldText>&lt;p&gt;{!utm_campaign}&lt;/p&gt;&lt;p&gt;{!utm_content}&lt;/p&gt;&lt;p&gt;{!utm_id}&lt;/p&gt;&lt;p&gt;{!utm_medium}&lt;/p&gt;&lt;p&gt;{!utm_referer}&lt;/p&gt;&lt;p&gt;{!utm_source}&lt;/p&gt;&lt;p&gt;{!utm_term}&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Copy_1_of_name</name>
+            <extensionName>flowruntime:name</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <storeOutputAutomatically>true</storeOutputAutomatically>
+        </fields>
+        <fields>
+            <name>Copy_1_of_email</name>
+            <extensionName>flowruntime:email</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <storeOutputAutomatically>true</storeOutputAutomatically>
+        </fields>
+        <fields>
+            <name>Copy_1_of_phone</name>
+            <extensionName>flowruntime:phone</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <storeOutputAutomatically>true</storeOutputAutomatically>
+        </fields>
+        <fields>
+            <name>Copy_1_of_address</name>
+            <extensionName>flowruntime:address</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <storeOutputAutomatically>true</storeOutputAutomatically>
+        </fields>
+        <nextOrFinishButtonLabel>Submit</nextOrFinishButtonLabel>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <name>Copy_1_of_End_Form</name>
+        <label>Copy 1 of End Form</label>
+        <locationX>314</locationX>
+        <locationY>998</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>Copy_1_of_EndText</name>
+            <fieldText>&lt;p&gt;Thank you for your request. You will receive a response shortly. (no)&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <nextOrFinishButtonLabel>Close</nextOrFinishButtonLabel>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <name>End_Form</name>
+        <label>End Form</label>
+        <locationX>50</locationX>
+        <locationY>1238</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>EndText</name>
+            <fieldText>&lt;p&gt;Thank you for your request. You will receive a response shortly.&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <nextOrFinishButtonLabel>Close</nextOrFinishButtonLabel>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
     <start>
         <locationX>56</locationX>
         <locationY>0</locationY>
@@ -301,6 +595,14 @@
         <isInput>false</isInput>
         <isOutput>false</isOutput>
         <objectType>Ad__c</objectType>
+    </variables>
+    <variables>
+        <name>assign_Campaign_Member</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>CampaignMember</objectType>
     </variables>
     <variables>
         <name>assign_Lead</name>
