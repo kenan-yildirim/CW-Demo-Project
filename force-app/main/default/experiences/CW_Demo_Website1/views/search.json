@@ -1,0 +1,44 @@
+{
+  "appPageId" : "7e82e60a-cf24-463d-b0f8-d5cd7443f56e",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "id" : "e2062153-d792-49f3-a90e-ff71c507bf08",
+  "label" : "Search",
+  "regions" : [ {
+    "id" : "603fa725-f02e-4c43-9754-94261a807d1e",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "scopes" : [ {
+          "isPublic" : true,
+          "name" : "KnowledgeArticleVersion"
+        }, {
+          "isPublic" : false,
+          "name" : "Case"
+        }, {
+          "isPublic" : true,
+          "name" : "ContentDocument"
+        } ],
+        "searchResultFiltering" : true,
+        "searchTerm" : "{!term}",
+        "showTopResults" : true
+      },
+      "componentName" : "forceCommunity:search",
+      "id" : "4ebe72ec-26ed-4656-9999-1054c7b8c354",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "5ff4816a-dd2a-422d-aadf-963770fd8c63",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "8cdb24ad-fc31-4631-a359-a82bc86eb89d",
+    "regionName" : "footer",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "global-search"
+}
