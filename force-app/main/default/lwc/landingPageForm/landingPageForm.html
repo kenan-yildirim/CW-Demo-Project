@@ -1,0 +1,30 @@
+<template>
+    <template if:false={isRegistered}>
+        <lightning-card variant="Narrow" title={Title} icon-name="standard:account">
+
+        <lightning-button-icon onclick={createLeadHandler} icon-name="utility:add" variant="border-filled" alternative-text="Show More" slot="actions"></lightning-button-icon>
+
+
+    <lightning-input onchange={onchangeHandler} type="text" name="fname" label="First Name " value={firstName} > </lightning-input>
+      <lightning-input onchange={onchangeHandler} type="text" name="lname" label="Last Name " value={lastName} > </lightning-input>
+      <lightning-input onchange={onchangeHandler}  type="email" name="email" label="Email" value={email} > </lightning-input>
+      <lightning-input onchange={onchangeHandler} type="phone" name="phone" label="Phone " value={phone} > </lightning-input>
+      <lightning-input onchange={onchangeHandler} type="text" name="street" label="Street " value={street} > </lightning-input>
+      <lightning-input onchange={onchangeHandler} type="text" name="city " label="City " value={city} > </lightning-input>
+      <lightning-input onchange={onchangeHandler}  type="text" name="state " label="State " value={state} > </lightning-input>
+      <lightning-input onchange={onchangeHandler}  type="text" name="zipcode" label="Zip Code " value={zipCode} > </lightning-input>
+      <lightning-input onchange={onchangeHandler} type="text" name="country" label="Country " value={country} > </lightning-input>
+      <lightning-input onchange={onchangeHandler} type="date" name="infodate" label="Info Date " value={infoDate} > </lightning-input>
+      <lightning-input onchange={onchangeHandler}  type="text" name="course" label="Course " value={course} > </lightning-input>
+
+        </lightning-card>
+    </template>
+
+    <template if:true={isRegistered}>
+        <lightning-card variant="Narrow"  title="Registration Competed" icon-name="standard:account">
+            <p class="slds-p-horizontal_small">Your Registration is Competed. One of our specialist contact with you as soon as possible. </p>
+            <p slot="footer">Success</p>
+        </lightning-card>
+    </template>
+
+</template>
