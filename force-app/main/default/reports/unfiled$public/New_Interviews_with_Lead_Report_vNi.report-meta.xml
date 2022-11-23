@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_LEAD_FIRST_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_LEAD_COMPANY</field>
+    </columns>
+    <columns>
+        <field>FK_LEAD_EMAIL</field>
+    </columns>
+    <columns>
+        <field>Interview__c.Interviewer__c</field>
+    </columns>
+    <columns>
+        <field>Interview__c.Status__c</field>
+    </columns>
+    <format>Tabular</format>
+    <name>New Interviews with Lead Report</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Interview__c@Interview__c.Lead__c</reportType>
+    <scope>user</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Interview__c.Scheduled_DateTime__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>
